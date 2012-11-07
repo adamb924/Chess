@@ -31,7 +31,7 @@ void MainWindow::getSettings()
     settings = new QSettings("AdamBaker", "Chess");
 
     scene->setVersion( settings->value("piece-mode","0").toUInt() );
-    if(scene->version()==ChessBoard::Western)
+    if(scene->version()==ChessBoard::Traditional)
         traditional->setChecked(true);
     else
         secularized->setChecked(true);
@@ -60,6 +60,7 @@ void MainWindow::setupMenus()
     QMenu *file = new QMenu(tr("File"));
     file->addAction(tr("Clear board"),scene,SLOT(clearBoard()),QKeySequence::New);
     file->addAction(tr("Starting positions"),scene,SLOT(setInitialPositions()));
+    file->addSeparator();
     file->addAction(tr("Save"),this,SLOT(save()),QKeySequence::Save);
     file->addAction(tr("Open"),this,SLOT(open()),QKeySequence::Open);
     file->addAction(tr("Create SVG"),this,SLOT(createSvg()),QKeySequence::Print);
@@ -75,8 +76,8 @@ void MainWindow::setupMenus()
     colors->addAction(tr("Restore defaults"),scene,SLOT(setDefaultColors()));
 
     QMenu *version = new QMenu(tr("Pieces"));
-    traditional = version->addAction(tr("Western"));
-    traditional->setData(ChessBoard::Western);
+    traditional = version->addAction(tr("Traditional"));
+    traditional->setData(ChessBoard::Traditional);
     traditional->setCheckable(true);
     traditional->setChecked(true);
     secularized = version->addAction(tr("Secularized"));

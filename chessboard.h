@@ -31,7 +31,7 @@ class ChessBoard : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    enum Version { Western, Secular };
+    enum Version { Traditional, Secular };
 
     explicit ChessBoard(QObject *parent = 0);
 

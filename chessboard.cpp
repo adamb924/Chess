@@ -10,7 +10,7 @@ ChessBoard::ChessBoard(QObject *parent) :
 
     nPieceWidth = 45;
     nBorderWidth = 0;
-    eVersion = Western;
+    eVersion = Traditional;
 
     setDefaultColors(); // also draws the board
 }

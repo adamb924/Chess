@@ -1,6 +1,6 @@
 #include "chessboard.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QGraphicsSvgItem>
 
 ChessBoard::ChessBoard(QObject *parent) :
@@ -70,7 +70,7 @@ void ChessBoard::clearBoard()
 
 void ChessBoard::refreshImage(int i, int j)
 {
-    QGraphicsItem *currentItem = itemAt( xFromCol(j) , yFromRow(i) );
+    QGraphicsItem *currentItem = itemAt( xFromCol(j) , yFromRow(i) , QTransform() );
     if( currentItem != 0 && currentItem->data(0) == 777 )
         delete currentItem;
 
